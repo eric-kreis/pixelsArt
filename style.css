@@ -21,14 +21,14 @@ h1 {
 }
 
 .form-floating {
-  width: 200px;
+  width: 350px;
   display: flex;
   margin: auto;
   font-size: x-small;
 }
 
 .form-control {
-  width: 200px;
+  width: 350px;
   padding: 5px;
   font-size: small;
   text-align: center;
@@ -36,10 +36,11 @@ h1 {
 
 #color-palette {
   padding: 0;
-  margin: auto;
-  width: 200px;
-  height: 150px;
   margin-bottom: 10px;
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
 }
 
 .color {
@@ -51,11 +52,17 @@ h1 {
 
 .color:hover {
   cursor: pointer;
+  width: 55px;
+  height: 55px;
 }
 
 .botao {
-  border: 2px solid #201B5D;
-  box-shadow: 3px 3px #30266D;
+  border: 3px solid #201B5D;
+  box-shadow: 4px 4px #30266D;
+}
+
+.botao:hover {
+  font-size: large;
 }
 
 .botao:active {
