@@ -30,6 +30,7 @@ function createPixelBaordElement(numero) {
   
 }
 
+// Cria suma cor preta, e sete cores aleatórias.
 function makeColors() {
   createPaletteElement('color1', 'black');
   for (let index = 2; index <= 8; index += 1) {
