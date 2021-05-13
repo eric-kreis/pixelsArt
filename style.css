@@ -35,8 +35,8 @@ h1 {
 }
 
 #color-palette {
+  margin: auto;
   padding: 0;
-  margin-bottom: 10px;
   display: flex;
   height: 70px;
   justify-content: center;
@@ -103,4 +103,13 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  #color-palette {
+    height: 110px;
+    flex-wrap: wrap;
+    max-width: 320px;
+    margin-bottom: 10px;
+  }
 }
