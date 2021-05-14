@@ -33,8 +33,7 @@ function createPixelBaordElement(numero) {
 // Cria o elemento preto e branco, e os com cores aleatórias.
 function makeColors() {
   createPaletteElement('color1', 'black');
-  createPaletteElement('color2', 'white');
-  for (let index = 3; index <= 12; index += 1) {
+  for (let index = 2; index <= 12; index += 1) {
     createPaletteElement(`color${index}`, generateRandomColor());
   }
 }
@@ -55,7 +54,6 @@ function changeSelected(elemento) {
 // Adiciona a funcao 'changeSelected' ao evento click de Id's específicos
 function changeSelectedClick() {
   const palleteColors = document.querySelectorAll('.color');
-
   for (const color of palleteColors) {
     color.addEventListener('click', changeSelected);
   }
@@ -74,6 +72,33 @@ function changeColorClick() {
   for (const pixel of pixels) {
     pixel.addEventListener('click', changeColor);
   }
+}
+
+function scrambleClick() {
+  const colorPalette = document.getElementById('color-palette');
+  colorPalette.innerHTML = '';
+  makeColors();
+  initialColor('color1');
+  changeSelectedClick();
+  changeColorClick();
+  clearBoardClick();
+  createScrambleButton();
+  scramble();
+}
+
+function scramble() {
+  const scrambleButton = document.getElementById('scramble');
+  scrambleButton.addEventListener('click', scrambleClick);
+}
+
+// Cria botao que muda as cores.
+function createScrambleButton() {
+  const colorPalette = document.getElementById('color-palette');
+  const scrambleButton = document.createElement('button');
+  scrambleButton.classList.add('botao');
+  scrambleButton.id = 'scramble';
+  scrambleButton.innerHTML = '&#8634';
+  colorPalette.appendChild(scrambleButton);
 }
 
 // Botão que deixa o background de todos os pixels da board como 'white'.
@@ -104,7 +129,7 @@ function userBoarder() {
   }
   const finalNumber = numberOfInput;
   if (userInput.value.length < 1) {
-    return alert('Board inválido!'), createPixelBaordElement(5);
+    return alert('Adicione um valor para mudar o tamanho!'), createPixelBaordElement(5);
   } return finalNumber;
 }
 
@@ -144,4 +169,6 @@ window.onload = function pixelsArt() {
   changeSelectedClick();
   changeColorClick();
   clearBoardClick();
+  createScrambleButton();
+  scramble();
 };
